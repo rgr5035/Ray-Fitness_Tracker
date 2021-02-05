@@ -34,12 +34,12 @@ const WorkoutSchema = new Schema ({
             required: true  
         },
 
-        sets: {
+        reps: {
             type: Number, 
             required: true
         },
 
-        reps: {
+        sets: {
             type: Number, 
             required: true
         },
