@@ -2,9 +2,9 @@ const router = require("express").Router();
 const Workout = require("../models/workout.js");
 
 
-//1 post, 1 put, 2 get, 1 delete
+//1 post, 1 put, 2 get, 1 delete(do we need this?)
 
-//get all workouts
+//get most recent workout 
 router.get("/api/workouts", (req, res) => {
     Workout.find({})
     .then(dbWorkout => {
@@ -30,9 +30,21 @@ router.post("/api/workouts", ( {body} , res) => {
 router.put("/api/workouts/:id", (req, res) => {
     Workout.findByIdAndUpdate(
         req.params.id,
-        { $push: { exercise: req.body} },
+        { $push: { exercises: req.body} },
         { new: true, runValidators: true }
     )
+    .then(dbWorkout => {
+        res.json(dbWorkout);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    })
+})
+
+//Get last seven workouts 
+router.get("/api/workouts/range", (req, res) => {
+    Workout.find({})
+    .limit(7)
     .then(dbWorkout => {
         res.json(dbWorkout);
     })

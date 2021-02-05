@@ -26,22 +26,26 @@ const WorkoutSchema = new Schema ({
 
         duration: {
             type: Number, 
-            required: true
+            required: "Please enter the duration in minutes"
+        },
+
+        distance: {
+            type: Number,
         },
 
         weight: {
             type: Number,
-            required: true  
+            // required: true  
         },
 
         reps: {
             type: Number, 
-            required: true
+            // required: true
         },
 
         sets: {
             type: Number, 
-            required: true
+            // required: true
         },
         
         }]
@@ -61,4 +65,4 @@ WorkoutSchema.virtual("totalDuration").get(function(){
 
 const Workout = mongoose.model("Workout", WorkoutSchema)
 
-module.exports =  Workout ;
+module.exports =  Workout  ;
