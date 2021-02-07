@@ -16,7 +16,7 @@ This is a fitness-tracking application for users to enter their daily work outs 
 
 ## Installation
 
-Please follow the following live site link to access the application:
+Please follow the following live site link to access the application: https://vast-tundra-76153.herokuapp.com/
 
 ## Usage
 
